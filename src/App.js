@@ -6,10 +6,13 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Private from './pages/Private';
+import User from './pages/User';
 
 import AnonRoute from './components/AnonRoute';
 import PrivateRoute from './components/PrivateRoute';
+import Favorites from './pages/Favorites';
+import Settings from './pages/Settings';
+import ListNew from './pages/ListNew';
 
 
 
@@ -26,7 +29,10 @@ class App extends Component {
           <AnonRoute exact path="/signup" component={Signup} />
           <AnonRoute exact path="/login" component={Login} />
 
-          <PrivateRoute exact path="/private" component={Private} />
+          <PrivateRoute exact path="/user" component={User} />
+          <PrivateRoute exact path="/favorites" component={Favorites} />
+          <PrivateRoute exact path="/settings" component={Settings} />
+          <PrivateRoute exact path="/newlist" component={ListNew} />
         </Switch>
       </div>
     );

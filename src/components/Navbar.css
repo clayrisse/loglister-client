@@ -1,0 +1,83 @@
+.navbar-top{
+    z-index: 1;
+    /* background-image: url(./../icons/headerv2.png); */
+    background-size: cover;
+    background-position-x: center;
+    position: fixed; /*cambiar en res 500 y 1000. y ponerla hidden en 1000*/
+    width: 100%;
+    height: auto;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: solid rgb(163, 163, 163) 0.3px;
+  }
+   
+  .navbar-bottom {
+    z-index: 1;
+    background-color: rgb(255, 255, 255);
+    position: fixed; /*cambiar en res 500 y 1000. y ponerla hidden en 1000*/
+    width: 100%;
+    bottom: 0;
+    overflow: hidden;
+    left: 0px;
+    border-top: solid rgb(163, 163, 163) 0.3px;
+  }
+    
+  .navbar-bottom ul {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .navbar-bottom li {
+    display: inline-block;
+    padding: .2rem 3%;
+  
+  }
+  .navbar-bottom a {    
+    text-decoration: yellow;  
+  }
+  
+  .navbar-texticon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .navbar-icon{
+    height: 10vh;
+    min-height: 25px;
+    max-height: 40px;
+    border-radius: 25%;
+    padding: 0.3vh;
+    
+  }
+  .navbar-icon-clicked{
+    height: 10vh;
+    min-height: 25px;
+    max-height: 40px;
+    border-radius: 25%;
+    background-color: #EFFAFB;
+    padding: 0.3vh;
+    border: solid #36B8BF 1px;
+  }
+
+  #iclogo {
+    height: 7vh;
+  }
+
+  
+  
+/*   
+  @media (min-width: 576px) {
+
+  } */
+  
+  
+  
+  /* @media (min-width: 992px) {
+
+  } */

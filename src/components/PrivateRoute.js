@@ -16,18 +16,13 @@ function PrivateRoute (routeProps) {
   if (isLoading) return 'Loading';
 
   return (
-    <Route
-      exact={exact}
-      path={path}
-      render={
-        function(props) {
-          if (! isLoggedIn) return <Redirect to="/login" />;
-          else if (isLoggedIn) return <ComponentToShow {...props} />;
-        }
-      }
-     />
-    )
+   // <Route {...rest} render={(props) => isLoggedIn ? <Component {...props}/> : <Redirect to="/login"/>}/> 
+    <Route exact={exact} path={path} render={(props) => isLoggedIn ? <ComponentToShow {...props}/> : <Redirect to="/login"/>}/> 
+  )
 }
+
+
+
 
 
 export default withAuth(PrivateRoute);

@@ -16,18 +16,10 @@ function AnonRoute (routeProps) {
   if (isLoading) return 'Loading';
 
   return (
-    <Route
-      exact={exact}
-      path={path}
-      render={
-        function(props) {
-          if (isLoggedIn) return <Redirect to="/private" />
-          else if (! isLoggedIn) return <ComponentToShow {...props} />
-        }
-      }
-     />
-    )
+    <Route exact={exact} path={path} render={(props) => isLoggedIn ? <Redirect to="/user" /> : <ComponentToShow {...props} /> } />
+  )
 }
 
 
+  
 export default withAuth(AnonRoute);

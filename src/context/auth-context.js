@@ -20,17 +20,13 @@ class AuthProvider extends React.Component {
   signup = (username, password) => {
     authService.signup( username, password )
       .then((user) => this.setState({ isLoggedIn: true, user }) )
-      .catch((err) => {
-        this.setState({ isLoggedIn: false, user: null });
-      })
+      .catch((err) => this.setState({ isLoggedIn: false, user: null }))
   }
 
   login = (username, password) => {
     authService.login( username, password )
       .then((user) => this.setState({ isLoggedIn: true, user }))
-      .catch((err) => {
-        this.setState({ isLoggedIn: false, user: null });
-      })
+      .catch((err) => this.setState({ isLoggedIn: false, user: null }))
   }
 
   logout = () => {
@@ -38,7 +34,6 @@ class AuthProvider extends React.Component {
       .then(() => this.setState({ isLoggedIn: false, user: null }))
       .catch((err) => console.log(err));
   }
-
 
   render() {
     const { isLoggedIn, isLoading, user } = this.state;

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { withAuth } from './../context/auth-context';
+import { withAuth } from '../context/auth-context';
 
-class Private extends Component {
+class User extends Component {
   render() {
     return (
       <div>
@@ -17,4 +17,4 @@ class Private extends Component {
 }
 
 
-export default withAuth(Private);
+export default withAuth(User);
