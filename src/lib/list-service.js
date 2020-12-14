@@ -8,15 +8,15 @@ class ListService {
     });
   }
 
-  getAll = () =>  this.api.get('/all')
+  // getAll = () =>  this.api.get('/all')
 
-  getOne = (id) => this.api.get(`/${id}`)
+  getOne = (idList) => this.api.get(`/${idList}`)
 
   create = (data)=> this.api.post(`/`, data )
 
-  edit = (id) => this.api.put(`/${id}`)
+  edit = (idList) => this.api.put(`/${idList}`)
 
-  deleteOne = (id) => this.api.delete(`/${id}`)
+  deleteOne = (idList) => this.api.delete(`/${idList}`)
 
 }
 

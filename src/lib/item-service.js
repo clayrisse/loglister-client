@@ -8,13 +8,13 @@ class ItemService {
     });
   }
 
-  getOne = (id) => this.api.get(`/${id}`)
+  getOne = (idList) => this.api.get(`/${idList}`)
 
   create = (data)=> this.api.post(`/`, data )
 
-  edit = (id) => this.api.put(`/${id}`)
+  edit = (idItem) => this.api.put(`/${idItem}`)
 
-  deleteOne = (id) => this.api.delete(`/${id}`)
+  deleteOne = (idItem) => this.api.delete(`/${idItem}`)
 
 }
 

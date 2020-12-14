@@ -32,7 +32,8 @@ class App extends Component {
           <PrivateRoute exact path="/user" component={User} />
           <PrivateRoute exact path="/favorites" component={Favorites} />
           <PrivateRoute exact path="/settings" component={Settings} />
-          <PrivateRoute exact path="/newlist" component={ListNew} />
+          <PrivateRoute exact path="/list/new" component={ListNew} />
+          <PrivateRoute exact path="/list/:listId" component={ListNew} />
         </Switch>
       </div>
     );

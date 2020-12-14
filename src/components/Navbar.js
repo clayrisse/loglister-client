@@ -47,7 +47,7 @@ class Navbar extends Component {
            
             <li className="nav-item">
               <div className="navbar-texticon">
-                <NavLink className="navbar-icontitle" to="/newlist" className="navbar-button">
+                <NavLink className="navbar-icontitle" to="/list/new" className="navbar-button">
                   <img className="navbar-icon" alt="nav-icon" src="./../icons/add.png"/>
                   <p className="navbar-title">New list</p>
                 </NavLink>
