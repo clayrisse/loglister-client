@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withAuth } from '../context/auth-context';
 
 class Favorites extends Component {
     render() {
@@ -10,4 +11,4 @@ class Favorites extends Component {
     }
 }
 
-export default Favorites
+export default withAuth(Favorites)

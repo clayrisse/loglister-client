@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withAuth } from '../context/auth-context';
 
 class ListNew extends Component {
     render() {
@@ -10,4 +11,4 @@ class ListNew extends Component {
     }
 }
 
-export default ListNew
+export default withAuth(ListNew)

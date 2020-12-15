@@ -17,6 +17,16 @@ class AuthProvider extends React.Component {
      .catch((err) => this.setState({ isLoggedIn: false, user: null, isLoading: false }));
   }
 
+  me = ()=> { 
+    authService.me()
+      .then((user) => this.setState({ isLoggedIn: true, user, isLoading: false }))
+      .catch((err) => this.setState({ isLoggedIn: false, user: null, isLoading: false }));
+  }
+
+  destroyUser = () => {
+    this.setState({ isLoggedIn: false, user: null, isLoading: false })
+  }
+
   signup = (username, password) => {
     authService.signup( username, password )
       .then((user) => this.setState({ isLoggedIn: true, user }) )
@@ -37,12 +47,12 @@ class AuthProvider extends React.Component {
 
   render() {
     const { isLoggedIn, isLoading, user } = this.state;
-    const { signup, login, logout } = this;
+    const { signup, login, logout, destroyUser } = this;
 
     if (isLoading) return <p>Loading</p>;
 
     return(
-      <Provider value={{ isLoggedIn, isLoading, user, signup, login, logout }}  >
+      <Provider value={{ isLoggedIn, isLoading, user, signup, login, logout, destroyUser }}  >
         {this.props.children}
       </Provider>
     )
@@ -59,7 +69,7 @@ const withAuth = (WrappedComponent) => {
       return(
         <Consumer>
           { (value) => {
-            const { isLoggedIn, isLoading, user, signup, login, logout } = value;
+            const { isLoggedIn, isLoading, user, signup, login, logout, destroyUser } = value;
 
             return (<WrappedComponent 
                       {...this.props}
@@ -69,6 +79,7 @@ const withAuth = (WrappedComponent) => {
                       signup={signup} 
                       login={login} 
                       logout={logout}
+                      destroyUser={destroyUser}
                     />)
 
           } }

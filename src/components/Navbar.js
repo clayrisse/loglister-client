@@ -28,7 +28,7 @@ class Navbar extends Component {
 
             <li className="nav-item">
               <div className="navbar-texticon">
-                <NavLink className="navbar-icontitle" to="/user" className="navbar-button">
+                <NavLink className="navbar-icontitle navbar-button" to="/user">
                   {/* <img className="navbar-icon" alt="nav-icon" src={user}/> */}
                   <img className="navbar-icon" alt="nav-icon" src="./../icons/user.png"/>
                   <p className="navbar-title">My Logs</p>
@@ -38,7 +38,7 @@ class Navbar extends Component {
 
             <li className="nav-item">
               <div className="navbar-texticon">
-                <NavLink className="navbar-icontitle" to="/favorites" className="navbar-button">
+                <NavLink className="navbar-icontitle navbar-button" to="/favorites">
                   <img className="navbar-icon" alt="nav-icon" src="./../icons/search.png"/>
                   <p className="navbar-title">Favorites</p>
                 </NavLink>
@@ -47,7 +47,7 @@ class Navbar extends Component {
            
             <li className="nav-item">
               <div className="navbar-texticon">
-                <NavLink className="navbar-icontitle" to="/list/new" className="navbar-button">
+                <NavLink className="navbar-icontitle navbar-button" to="/list/new">
                   <img className="navbar-icon" alt="nav-icon" src="./../icons/add.png"/>
                   <p className="navbar-title">New list</p>
                 </NavLink>
@@ -56,7 +56,7 @@ class Navbar extends Component {
          
             <li className="nav-item">
               <div className="navbar-texticon">
-                <NavLink className="navbar-icontitle" to="/settings" className="navbar-button">
+                <NavLink className="navbar-icontitle navbar-button" to="/settings">
                   <img className="navbar-icon" alt="nav-icon" src="./../icons/setting.png"/>
                   <p className="navbar-title">Settings</p>
                 </NavLink>

@@ -22,9 +22,6 @@ function PrivateRoute (routeProps) {
 }
 
 
-
-
-
 export default withAuth(PrivateRoute);
 
 

@@ -1,26 +1,30 @@
 import React, { Component } from "react";
 import { withAuth } from '../context/auth-context';
-// import { Link } from 'react-router-dom';
-import { Link, NavLink } from 'react-router-dom';
-import userService from './../lib/user-service'
+import { Link } from 'react-router-dom';
+import serverService from '../lib/server-service'
 
 class User extends Component {
-  // constructor (props) {
-  //   super (props)
-  //     this.state = {
-  //       userInfo: props.user,
-  //       infoShown:{}
-  //   }
-  // }
+  constructor(props) {
+    super (props)
+    this.state = {
+      listArr: [],
+      infoShown: ""
+    }
+    console.log('props', props)
+  }
+  
 
   state = {
-    userInfo: {},
+    userInfo: [],
     infoShown: {}
   }
 
   getUserInfo = () => {
-    userService.getAllUserInfo() //axios call from service
-      .then((response) => this.setState({userInfo: response.data, infoShown: response.data.listsId[4]}))
+    serverService.getAllUserInfo() //axios call from service
+      .then((response) => {
+        console.log('response.data', response.data)
+        this.setState({listArr: response.data.listsId, infoShown: response.data.listsId[4].name})
+      })
       .catch((err) => console.log(err)) // con axios results is on `response.data` key
   } 
   
@@ -30,28 +34,34 @@ class User extends Component {
   }
 
   render() {
+
     return (
       <div>
         <h1>Private Route</h1>
         <h2>Welcome {this.props.user && this.props.user.username}</h2>
-        {/* <h2>Welcome {this.state.infoShown}</h2> */}
-        {/* <h2>Welcome {this.state.userInfo.listsId[4].name}</h2> */}
-        {/* <h2>Welcome {this.state.userInfo.listsId[4].name}</h2> */}
-        {/* <h2>Welcome {this.props.user && this.props.user.listsId}</h2> */}
-        {/* 
-        <h2>Welcome {this.props.user ? this.props.user.username : null }</h2> 
-        */}
-        
+        <br/>
+        <h2>{this.state.infoShown}</h2>
 
         
-        {/* {this.state.userInfo.listsId.map(eachlist => {
+        {this.state.listArr.map((eachlist, i) => {
             return(
-                <div key={eachlist._id}>
-                        <h3>{eachlist.name}</h3>
+                <div key={i}>
+                        <Link to={`list/${eachlist._id}`}>{eachlist.name}</Link>
                 </div>
             )
         })
-        } */}
+        }
+
+        <br/> <br/> <br/> <br/>
+
+        {this.state.listArr.map((eachlist, i) => eachlist.listItems.map(listItem => {
+            return(
+                <div key={listItem._id}>
+                        <h3>{listItem.title}</h3>
+                </div>
+            )
+        }))
+        }
        
              
      
