@@ -16,6 +16,8 @@ class ServerService {
 
   editUser = (user) =>  this.api.put('/user', user)
 
+  uploadImage = (uploadData) =>  this.api.post('/user/upload', uploadData)
+  
   deleteUser = () =>  this.api.delete('/user')
 
 

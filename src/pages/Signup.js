@@ -22,20 +22,21 @@ class Signup extends Component {
     return (
       <div>
         <h1>Sign Up</h1>
-
+<br/> <br/>
         <form onSubmit={this.handleFormSubmit}>
-
+          
           <label>Username:</label>
           <input type="text" name="username" value={username} onChange={this.handleChange} />
-
+<br/> <br/>
           <label>Password:</label>
           <input type="password" name="password" value={password} onChange={this.handleChange} />
-
+<br/> <br/>
           <input type="submit" value="Signup" />
         </form>
+<br/> <br/>
         
         <p>Already have account?</p>
-        <Link to={"/login"}> Login</Link>
+        <Link to={"/login"}>Go to "Login"</Link>
       </div>
     );
   }

@@ -13,10 +13,7 @@ class Navbar extends Component {
        <div className="" id="nav">
        <ul className="navbar-nav">
   
-        
-
-        {/* <Link to={'/'} id='home-btn'><h4>Home</h4></Link> */}
-        {this.props.isLoggedIn ? (
+        {this.props.isLoggedIn && (
           <>
             <li className="nav-item">
               <div className="navbar-texticon">
@@ -24,13 +21,12 @@ class Navbar extends Component {
                 <a href="#nav" onClick={this.props.logout}>Logout</a>
               </div>
             </li>
-        
 
             <li className="nav-item">
               <div className="navbar-texticon">
                 <NavLink className="navbar-icontitle navbar-button" to="/user">
                   {/* <img className="navbar-icon" alt="nav-icon" src={user}/> */}
-                  <img className="navbar-icon" alt="nav-icon" src="./../icons/user.png"/>
+                  <img className="navbar-icon" alt="nav-icon" src={this.props.user.image ? this.props.user.image : "./../icons/user.png"}/>
                   <p className="navbar-title">My Logs</p>
                 </NavLink>
               </div>
@@ -62,19 +58,6 @@ class Navbar extends Component {
                 </NavLink>
               </div>
             </li>
-
-
-
-            {/* <Link to="/user" className="navbar-button">My Logs</Link>
-            <Link to="/favorites" className="navbar-button">Favorites</Link>
-            <Link to="/newlist" className="navbar-button">+List</Link>
-            <Link to="/settings" className="navbar-button">Settings</Link> */}
-          </>
-        ) : (
-          <>
-            <Link to="/login"className="navbar-button">Login</Link>
-  
-            <Link to="/signup"className="navbar-button">Sign Up</Link>
           </>
         )}
           </ul>
@@ -84,3 +67,17 @@ class Navbar extends Component {
   }
 }
 export default withAuth(Navbar);
+
+
+
+// <Link to="/user" className="navbar-button">My Logs</Link>
+// <Link to="/favorites" className="navbar-button">Favorites</Link>
+// <Link to="/newlist" className="navbar-button">+List</Link>
+// <Link to="/settings" className="navbar-button">Settings</Link>
+
+  // : (
+  //   <>
+  //     <Link to="/login"className="navbar-button">Login</Link>
+  //     <Link to="/signup"className="navbar-button">Sign Up</Link>
+  //   </>
+  // )

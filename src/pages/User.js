@@ -22,8 +22,8 @@ class User extends Component {
   getUserInfo = () => {
     serverService.getAllUserInfo() //axios call from service
       .then((response) => {
-        console.log('response.data', response.data)
-        this.setState({listArr: response.data.listsId, infoShown: response.data.listsId[4].name})
+        console.log('response.data derrr user-----------', response.data)
+        this.setState({listArr: response.data.listsId, infoShown: response.data.listsId[0].name})
       })
       .catch((err) => console.log(err)) // con axios results is on `response.data` key
   } 
