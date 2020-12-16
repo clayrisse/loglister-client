@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { withAuth } from './../context/auth-context';
 // import user from './../icons/user.png'
 import "./Navbar.css"

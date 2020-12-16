@@ -25,9 +25,9 @@ class ServerService {
 
   getOneList = (idList) => this.api.get(`/list/${idList}`)
 
-  createList = (data)=> this.api.post(`/list`, data )
+  createList = (listData)=> this.api.post(`/list`, listData )
 
-  editList = (idList) => this.api.put(`/list/${idList}`)
+  editList = (idList, listData) => this.api.put(`/list/${idList}`, listData)
 
   deleteOneList = (idList) => this.api.delete(`/list/${idList}`)
 
@@ -36,7 +36,7 @@ class ServerService {
 
   getOneItem = (idList) => this.api.get(`/item/${idList}`)
 
-  createItem = (data)=> this.api.post(`/item`, data )
+  createItem = (listId, title)=> this.api.post(`/item/${listId}`, title )
 
   editItem = (idItem) => this.api.put(`/item/${idItem}`)
 
