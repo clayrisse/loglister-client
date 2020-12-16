@@ -13,14 +13,15 @@ class ItemAdd extends Component {
         const listId = this.props.listId
 
         // serverService.createItem(listId, title)
-        serverService.createItem(listId, title)
+        serverService.createItem(listId, {title})
         .then( (addedItem) => {
             console.log('addedItem', addedItem)
             // const newListId = createdList.data._id
+            
             this.props.getUserInfo()     
         })
         .catch ((err) => console.log(err))
-
+        this.setState({title: ""})
       };
     
       handleChange = (event) => {
@@ -30,13 +31,13 @@ class ItemAdd extends Component {
 
     
       render() {
+        const { title } = this.state
         return (
           <div>
             <form onSubmit={this.handleFormSubmit}>
               
               <button type="submit" className="btnform" >Add Item</button>
-              
-              <input type="text" name="title" value={this.state.title} onChange={this.handleChange} required/>
+              <input type="text" name="title" value={title} onChange={this.handleChange} required/>
                 
             </form>
           </div>
