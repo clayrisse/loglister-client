@@ -15,9 +15,23 @@
     border-bottom: solid rgb(163, 163, 163) 0.3px;
   }
    
+   :root { 
+    --c01:#ffffff;
+    --c02:#f5f3f4;
+    --c03:#d3d3d3;
+    --c04:#b1a7a6;
+    --c05:#e5383b;
+    --c06:#ba181b;
+    --c07:#a4161a;
+    --c08:#660708;
+    --c09:#161a1d;
+    --c10:#0b090a;
+  } 
+
+
   .navbar-bottom {
     z-index: 1;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--c10);
     position: fixed; /*cambiar en res 500 y 1000. y ponerla hidden en 1000*/
     width: 100%;
     bottom: 0;
@@ -25,20 +39,24 @@
     left: 0px;
     border-top: solid rgb(163, 163, 163) 0.3px;
   }
-    
+  
   .navbar-bottom ul {
     text-align: center;
     padding: 0;
     margin: 0;
   }
-
+  
   .navbar-bottom li {
     display: inline-block;
     padding: .2rem 3%;
-  
+    
   }
   .navbar-bottom a {    
-    text-decoration: yellow;  
+    text-decoration: yellow; 
+    color: var(--c02);
+    font-size: 11px;
+    font-weight: 100;
+
   }
   
   .navbar-texticon {
@@ -51,10 +69,14 @@
     height: 10vh;
     min-height: 25px;
     max-height: 40px;
-    border-radius: 25%;
+    border-radius: 50%;
     padding: 0.3vh;
     
   }
+
+  /* #nav-avatar {
+    height: 35px;    
+  } */
   .navbar-icon-clicked{
     height: 10vh;
     min-height: 25px;

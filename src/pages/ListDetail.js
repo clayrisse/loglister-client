@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
 import ItemAdd from '../components/ItemAdd';
+import ItemDisplay from '../components/ItemDisplay';
 import ListEdit from '../components/ListEdit';
 import { withAuth } from '../context/auth-context';
 import serverService from '../lib/server-service'
+import './ListDetail.css'
 
 class ListDetail extends Component {
     state = {
         chosenList:[],
         itemListArr:[],
-        settingsOn: false
+        settingsOn: false,
+        isDone: false
       }
     
     toggleListEdit = () => {
@@ -18,7 +21,8 @@ class ListDetail extends Component {
     
     goToUserPage = () => this.props.history.push(`/user`)
     
-    getUserInfo = () => {
+    // getListInfo = () => {
+    getListInfo = () => {
         const { listId } = this.props.match.params;
         serverService.getOneList(listId) //axios call from service
             .then((response) => {
@@ -28,55 +32,98 @@ class ListDetail extends Component {
     } 
       
     componentDidMount() {
-    this.getUserInfo()
+    this.getListInfo()
     }
 
+    // handleIsDoneCheck = (event) => {
+    //     console.log('event', event.target)
+    //     const { name, checked } = event.target;
+    //     this.setState({ [name]: checked });
+    //     const { isDone } = this.state
+        
+    //     serverService.checkItem( {isDone})
+    //     // serverService.checkItem(idItem, {isDone})
+    //         // console.log("edit sended------------")
+    //          .then( (checkedItem) => {
+    //         console.log('checkedItem', checkedItem)
+      
+    //     })
+    //     .catch ((err) => console.log(err)) 
+    //   };
+    
     render() {
         return (
-            <div>
-                list Deeeeeetail
-                <br/><br/>
+            <div className="dad-div">
+                <h1>{this.state.chosenList.name}</h1>
+                <p>{this.state.ownerId}</p>
+                <button className="btnsetting" onClick={this.toggleListEdit}><img src="./../icons/settings.png" height="20px" alt="trash"/></button>
+                <br/> 
+                {this.state.settingsOn && 
+                    <ListEdit 
+                        goToUserPage={this.goToUserPage} 
+                        getListInfo={this.getListInfo} 
+                        listInfo={this.state.chosenList} 
+                        toggleListEdit={this.toggleListEdit}
+                    />
+                }
 
-                <button className='add' onClick={this.toggleListEdit}><span>settings</span></button>
-                <br/> <br/>
+                <ItemAdd listId={this.state.chosenList._id} getListInfo={this.getListInfo}/>
+             <br/>
+                <hr className="hr-big"/> 
+                <div className="listing">
+                    <h2>Still to do</h2>
+                    <br/>
+                    {this.state.itemListArr.map((eachItemInfo) => {
+                        return !eachItemInfo.isDone && <ItemDisplay 
+                            key={eachItemInfo._id} 
+                            itemId={eachItemInfo._id} 
+                            getListInfo={this.getListInfo}
+                        /> 
+                        })
+                    }
+                </div>
 
-                {this.state.settingsOn && <ListEdit goToUserPage={this.goToUserPage} getUserInfo={this.getUserInfo} listInfo={this.state.chosenList} toggleListEdit={this.toggleListEdit}/>}
-                <br/> <br/>
-                {/* {this.state.formOn && <AddFoodForm addOneFood={this.addOneFood} />
-        } */}
-
-                <br/><br/>
-             
-                <h2>{this.state.chosenList.name}</h2>
-                <h2>{this.state.chosenList._id}</h2>
-
-                <br/><br/><br/><br/>
-                <ItemAdd listId={this.state.chosenList._id} getUserInfo={this.getUserInfo}/>
-                <br/><br/>
-                {this.state.itemListArr.map((eachItem, i) =>  {
-                    return(
-                        <div key={i}>
-                            <p>{eachItem.title}</p>
-                        </div>
-                    )}
-                )}
-                <br/> <br/> <br/>
-                        <h1>DONE</h1>
-                        <br/>
-                {this.state.itemListArr.map((eachItem, i) =>  { 
-                    return eachItem.isDone && <p>{eachItem.title}</p>
-                   }
-                )}
-                   
+             <br /> 
+                <hr className="hr-big"/> 
+                <div className="listing">
+                    <h2>Done</h2>
+                    <br/>
+                        {this.state.itemListArr.map((eachItemInfo) => {
+                            return eachItemInfo.isDone && <ItemDisplay 
+                                key={eachItemInfo._id} 
+                                itemId={eachItemInfo._id} 
+                                getListInfo={this.getListInfo}
+                            /> })
+                        }
+                </div>
             </div> 
-         
-        )   
+        
+    )   
    
     }
 }
 
 export default withAuth(ListDetail)
 
+
+
+
+// {this.state.itemListArr.map((eachItemInfo, i) =>  {
+//     return(
+//         <div key={eachItemInfo._id}>
+//         <div className="inputform">
+//     <label>Locked</label>
+//     {/* <input type="checkbox" checked={this.state.isDone}  id="isDone-input" name="isDone"  
+//      onChange={()=>this.handleIsDoneCheck(i,eachItemInfo._id)} /> */}
+//     <input type="checkbox" checked={eachItemInfo.isDone}  id="isDone-input" name="isDone" 
+//     onChange={this.handleIsDoneCheck} />
+// </div> 
+//             <p>{this.state.itemListArr[i]._id}</p>
+//             <p>{eachItemInfo._id}</p>
+//             <p>{eachItemInfo.title}</p>
+//             {/* <ItemDisplay itemId={eachItemInfo._id}  /> */}
+//         </div>
+//     )}
 
 
 

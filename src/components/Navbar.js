@@ -15,36 +15,36 @@ class Navbar extends Component {
   
         {this.props.isLoggedIn && (
           <>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <div className="navbar-texticon">
                 <p>username: {this.props.user && this.props.user.username}</p>
                 <a href="#nav" onClick={this.props.logout}>Logout</a>
               </div>
-            </li>
+            </li> */}
 
             <li className="nav-item">
               <div className="navbar-texticon">
                 <NavLink className="navbar-icontitle navbar-button" to="/user">
                   {/* <img className="navbar-icon" alt="nav-icon" src={user}/> */}
-                  <img className="navbar-icon" alt="nav-icon" src={this.props.user.image ? this.props.user.image : "./../icons/user.png"}/>
+                  <img id="nav-avatar" className="navbar-icon" alt="nav-icon" src={this.props.user.image ? this.props.user.image : "./../icons/user.png"}/>
                   <p className="navbar-title">My Logs</p>
                 </NavLink>
               </div>
             </li>
 
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <div className="navbar-texticon">
                 <NavLink className="navbar-icontitle navbar-button" to="/favorites">
                   <img className="navbar-icon" alt="nav-icon" src="./../icons/search.png"/>
                   <p className="navbar-title">Favorites</p>
                 </NavLink>
               </div>
-            </li>
+            </li> */}
            
             <li className="nav-item">
               <div className="navbar-texticon">
                 <NavLink className="navbar-icontitle navbar-button" to="/list/new">
-                  <img className="navbar-icon" alt="nav-icon" src="./../icons/add.png"/>
+                  <img className="navbar-icon" alt="nav-icon" src="./../icons/addwhite.png"/>
                   <p className="navbar-title">New list</p>
                 </NavLink>
               </div>
@@ -53,7 +53,7 @@ class Navbar extends Component {
             <li className="nav-item">
               <div className="navbar-texticon">
                 <NavLink className="navbar-icontitle navbar-button" to="/settings">
-                  <img className="navbar-icon" alt="nav-icon" src="./../icons/setting.png"/>
+                  <img className="navbar-icon" alt="nav-icon" src="./../icons/settings.png"/>
                   <p className="navbar-title">Settings</p>
                 </NavLink>
               </div>

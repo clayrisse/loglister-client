@@ -34,11 +34,13 @@ class ServerService {
 
 // item routes
 
-  getOneItem = (idList) => this.api.get(`/item/${idList}`)
+  getOneItem = (idItem) => this.api.get(`/item/${idItem}`)
 
   createItem = (listId, title)=> this.api.post(`/item/${listId}`, title )
 
   editItem = (idItem) => this.api.put(`/item/${idItem}`)
+  
+  checkItem = (idItem, isDone) => this.api.put(`/item/check/${idItem}`, isDone)
 
   deleteOneItem = (idItem) => this.api.delete(`/item/${idItem}`)
 

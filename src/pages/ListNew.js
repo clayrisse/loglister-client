@@ -34,14 +34,17 @@ class ListNew extends Component {
         const { name, type, background, editorsName } = this.state;
         return (
           <div>
-            <h1>list new</h1>
+            <h1>Add</h1>
     <br/> <br/>
             <form onSubmit={this.handleFormSubmit}>
               
-              <label>Name:</label>
+              <label>List name:</label>
+    <br/>
               <input type="text" name="name" value={name} onChange={this.handleChange} required/>
     <br/>
+    <br/>
               <label>Type:</label>
+    <br/>
               <select value={type} onChange={this.handleChange} name="type" >
                     <option value="list" default>list</option>
                     <option value="todo">todo</option>
@@ -49,11 +52,16 @@ class ListNew extends Component {
                     <option value="cyclelist">cyclelist</option>
               </select>
     <br/>
+    <br/>
               <label>Background:</label>
-              <input type="text" name="background" value={background} onChange={this.handleChange} />
+    <br/>
+              <input type="text" name="background" placeholder="Some api call..." value={background} onChange={this.handleChange} />
+    <br/>
     <br/>
               <label>Editor's Username:</label>
+    <br/>
               <input type="text" name="editorsName" value={editorsName } onChange={this.handleChange} />
+    <br/>
     <br/>
  
               <button type="submit" className="btnform" >Create List</button>

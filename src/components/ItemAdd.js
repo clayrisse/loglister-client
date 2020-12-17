@@ -18,7 +18,7 @@ class ItemAdd extends Component {
             console.log('addedItem', addedItem)
             // const newListId = createdList.data._id
             
-            this.props.getUserInfo()     
+            this.props.getListInfo()     
         })
         .catch ((err) => console.log(err))
         this.setState({title: ""})
@@ -35,10 +35,8 @@ class ItemAdd extends Component {
         return (
           <div>
             <form onSubmit={this.handleFormSubmit}>
-              
-              <button type="submit" className="btnform" >Add Item</button>
               <input type="text" name="title" value={title} onChange={this.handleChange} required/>
-                
+              <button type="submit" id="add-item-icon" className="btnform "><img src="./../icons/add.png" height="12px"  alt="trash"/></button>
             </form>
           </div>
         );

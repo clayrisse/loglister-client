@@ -82,9 +82,12 @@ class Settings extends Component {
 
       return (
         <div>
-            <h1>Change Settings</h1>
+            <h1>Settings</h1>
         <br/>
-            <button className="navbar-title" onClick={logout}>Logout</button>
+            {/* <button className="navbar-title" onClick={logout}>Logout</button> */}
+            <button className="btnsetting" onClick={logout}><img src="./../icons/logout.png" height="40px" alt="trash"/></button>
+                
+
         <br/>
         <br/>
                 <div className="inputform">
@@ -102,10 +105,12 @@ class Settings extends Component {
         <br/>
 
                 <label>Username:</label>
+        <br/> 
                 <input type="text" name="username" value={username} onChange={this.handleChange} />
         <br/> 
         <br/>
                 <label>Password:</label>
+        <br/> 
                 <input type="password" name="password" value={password} onChange={this.handleChange} />
         <br/> 
         <br/>

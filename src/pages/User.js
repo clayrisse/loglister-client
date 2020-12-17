@@ -34,65 +34,75 @@ class User extends Component {
       // })
       .catch((err) => console.log(err)) // con axios results is on `response.data` key
   } 
-  
-
+    
+    
   componentDidMount() {
     this.getUserInfo()
   }
-
-  //listsId[1].name
+    
+    //listsId[1].name
   render() {
     return (
       <div>
-        <h1>Private Route</h1>
-        <h2>Welcome {this.props.user && this.props.user.username}</h2>
-        {/* <h2>Welcome {this.props.user && this.props.user.listsId[1].name}</h2> */}
+        <h1>{this.props.user && this.props.user.username}</h1>
         <br/>
-         <h1>{this.state.infoShown.username}</h1>
-        {/* <h1>{this.state.infoShown.listsId[3].name ? this.state.infoShown.listsId[1].name : null}</h1> */} 
-        {/* <h1>{this.state.infoShown.listsId[3].name }</h1>  */}
-<hr/><br/>
-        {this.state.listArr.map((eachlist, i) => {
-          return(
-            <div key={i}>
-              <Link to={`list/${eachlist._id}`}>{eachlist.name}</Link>
-            </div>
-          )
-        })
-        }
-<br/><hr/><br/>
-        {this.state.editorsArr.map((eachlist, i) => {
-          return(
-            <div key={i}>
-              <Link to={`list/${eachlist._id}`}>{eachlist.name}</Link>
-            </div>
-          )
-        })
-        }
- <br/><hr/><br/> 
-        {this.state.listArr.map((eachlist, i) => eachlist.listItems.map(listItem => {
+        <hr className="hr-big"/> 
+        <div className="listing">
+          <h2>Listas</h2>
+          <br/>
+          {this.state.listArr.map((eachlist, i) => {
             return(
-                <div key={listItem._id}>
-                        <h3>{listItem.title}</h3>
+              <div key={eachlist._id}>
+                <div className="itemrow">
+                    <Link to={`list/${eachlist._id}`}>{eachlist.name}</Link>
                 </div>
-            )
-        }))
-        }
-<br/><hr/><br/>   
-        {this.state.editorsArr.map((eachlist, i) => eachlist.listItems.map(listItem => {
+                <hr className="hr-small"/> 
+              </div>
+            )})
+          }
+          <br/>
+          {this.state.editorsArr.map((eachlist, i) => {
             return(
-                <div key={listItem._id}>
-                        <h3>{listItem.title}</h3>
+              <div key={eachlist._id}>
+                <div className="itemrow item-editor">
+                  <Link to={`list/${eachlist._id}`}>{eachlist.name}</Link>
                 </div>
-            )
-        }))
-        }
-<br/><hr/>
-    
-
-
-
-
+                <hr className="hr-small"/> 
+              </div>
+            )})
+          }
+          <br/>
+        </div>
+        <hr className="hr-big"/> 
+        <div className="listing">
+          <h2>Things to do</h2>
+          <br/>
+          {this.state.listArr.map((eachlist, i) => eachlist.listItems.map(listItem => {
+            if (listItem.isDone == true) {
+              return(
+                <div key={listItem._id}>
+                    <div className="itemrow">
+                      <Link to={`list/${listItem.listId}`}>{listItem.title}</Link>
+                    </div>
+                    <hr className="hr-small"/> 
+                </div>
+              )}}))
+          }
+          {/* <br/> */}
+          {this.state.editorsArr.map((eachlist, i) => eachlist.listItems.map(listItem => { 
+            if (listItem.isDone == true) {
+              return(
+                <div key={listItem._id}>
+                    <div className="itemrow item-editor">
+                      <Link to={`list/${listItem.listId}`}>{listItem.title}</Link>
+                          {/* <h3>{listItem.title}</h3> */}
+                    </div>
+                  <hr className="hr-small"/> 
+                </div>
+              )}}))
+          }
+        </div>
+        <br/>
       </div>
     );
   }
