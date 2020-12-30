@@ -21,7 +21,6 @@ class ListDetail extends Component {
     
     goToUserPage = () => this.props.history.push(`/user`)
     
-    // getListInfo = () => {
     getListInfo = () => {
         const { listId } = this.props.match.params;
         serverService.getOneList(listId) //axios call from service
@@ -35,21 +34,6 @@ class ListDetail extends Component {
     this.getListInfo()
     }
 
-    // handleIsDoneCheck = (event) => {
-    //     console.log('event', event.target)
-    //     const { name, checked } = event.target;
-    //     this.setState({ [name]: checked });
-    //     const { isDone } = this.state
-        
-    //     serverService.checkItem( {isDone})
-    //     // serverService.checkItem(idItem, {isDone})
-    //         // console.log("edit sended------------")
-    //          .then( (checkedItem) => {
-    //         console.log('checkedItem', checkedItem)
-      
-    //     })
-    //     .catch ((err) => console.log(err)) 
-    //   };
     
     render() {
         return (

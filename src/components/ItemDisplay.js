@@ -3,30 +3,26 @@ import serverService from '../lib/server-service'
 
 class ItemDisplay extends Component {
     state = {
-        isDone: false,
         title: "",
-        notes: ""
+        notes: "",
+        isDone: false
     }
 
     handleIsDoneCheck = (event) => {
-        const { name, checked } = event.target;
-        this.setState({ [name]: checked });
-        const { isDone } = this.state
+      
+        // const { name, checked } = event.target;
+        // this.setState({ [name]: checked });
+        
+        //setState is asyncronous so I have to go around that to refresh directly on the DB
+        //then db updates and comes back refreshing the state
+        const isDone = !this.state.isDone 
         
         serverService.checkItem(this.props.itemId, {isDone})
-        .then( (checkedItem) => { 
-            console.log('checkedItem', checkedItem.data)
-            this.props.getListInfo()
-        })
+        .then(() => this.props.getListInfo())
         .catch ((err) => console.log(err)) 
-
-        serverService.checkItem(this.props.itemId, {isDone})
-        .then( (checkedItem) => {
-            console.log('checkedItem2', checkedItem.data)
-            this.props.getListInfo()
-        })
-      };
-
+        
+    };
+        
 
     getItemInfo = (itemId) => {
         serverService.getOneItem(itemId) //axios call from service

@@ -78,7 +78,7 @@ class User extends Component {
           <h2>Things to do</h2>
           <br/>
           {this.state.listArr.map((eachlist, i) => eachlist.listItems.map(listItem => {
-            if (listItem.isDone == true) {
+            if (listItem.isDone === false) {
               return(
                 <div key={listItem._id}>
                     <div className="itemrow">
@@ -90,8 +90,8 @@ class User extends Component {
           }
           {/* <br/> */}
           {this.state.editorsArr.map((eachlist, i) => eachlist.listItems.map(listItem => { 
-            if (listItem.isDone == true) {
-              return(
+            if (listItem.isDone === false) {
+              return (
                 <div key={listItem._id}>
                     <div className="itemrow item-editor">
                       <Link to={`list/${listItem.listId}`}>{listItem.title}</Link>
