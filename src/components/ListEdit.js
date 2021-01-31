@@ -8,7 +8,7 @@ class ListEdit extends Component {
         background: "",
         editorsName: "",
         isPrivate: true,
-        deleteconfirm: true
+        deleteconfirm: false
     }
     
     handleIsPrivateCheckbox = (event) => {
@@ -94,13 +94,24 @@ class ListEdit extends Component {
                 <input type="text" name="editorsName" value={editorsName} onChange={this.handleChange} />
         <br/>
         <br/>
-        <button onClick={this.toggleDeleteConfirm} className="btnform " ><img src="./../icons/trash.png" height="15px" alt="trash"/>Delete List</button> 
+        {/* <button onClick={this.handleDeleteList}>Delete List</button>  */}
+        <button onClick={this.toggleDeleteConfirm}>Delete List</button> 
+        {/* <button onClick={this.toggleDeleteConfirm} className="btnform" ><img src="./../icons/trash.png" height="15px" alt="trash"/>Delete List</button>  */}
         {/* <button onClick={this.toggleDeleteConfirm}><img src="./../icons/trash.png" height="30px" alt="trash"/></button>  */}
         {  !this.state.deleteconfirm && (
             <>
+
+            <br/>
+            <br/>
+            <br/>
             <p>Are you sure?</p>
-            <button onClick={this.toggleDeleteConfirm}>NO</button> 
-            <button onClick={this.handleDeleteList}>YES</button> 
+            <br/>
+            <button 
+            onClick={this.toggleDeleteConfirm}
+            >NO</button> 
+            <button 
+            onClick={this.handleDeleteList}
+            >YES</button> 
             <br/><br/>
             </>
         )}

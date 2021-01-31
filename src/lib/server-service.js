@@ -4,7 +4,8 @@ class ServerService {
 
   constructor() {
     this.api = axios.create({        
-      baseURL: "http://localhost:5000/api",
+      // baseURL: "http://localhost:5000/api",
+      baseURL: "http://localhost:5000",
       // baseURL: process.env.REACT_APP_API_URL,
       withCredentials: true
     });
@@ -12,37 +13,37 @@ class ServerService {
 
 // list routes
 
-  getAllUserInfo = () =>  this.api.get('/user')
+  getAllUserInfo = () =>  this.api.get('/api/user')
 
-  editUser = (user) =>  this.api.put('/user', user)
+  editUser = (user) =>  this.api.put('/api/user', user)
 
-  uploadImage = (uploadData) =>  this.api.post('/user/upload', uploadData)
+  uploadImage = (uploadData) =>  this.api.post('/api/user/upload', uploadData)
   
-  deleteUser = () =>  this.api.delete('/user')
+  deleteUser = () =>  this.api.delete('/api/user')
 
 
 // list routes
 
-  getOneList = (idList) => this.api.get(`/list/${idList}`)
+  getOneList = (idList) => this.api.get(`/api/list/${idList}`)
 
-  createList = (listData)=> this.api.post(`/list`, listData )
+  createList = (listData)=> this.api.post(`/api/list`, listData )
 
-  editList = (idList, listData) => this.api.put(`/list/${idList}`, listData)
+  editList = (idList, listData) => this.api.put(`/api/list/${idList}`, listData)
 
-  deleteOneList = (idList) => this.api.delete(`/list/${idList}`)
+  deleteOneList = (idList) => this.api.delete(`/api/list/${idList}`)
 
 
 // item routes
 
-  getOneItem = (idItem) => this.api.get(`/item/${idItem}`)
+  getOneItem = (idItem) => this.api.get(`/api/item/${idItem}`)
 
-  createItem = (listId, title)=> this.api.post(`/item/${listId}`, title )
+  createItem = (listId, title)=> this.api.post(`/api/item/${listId}`, title )
 
-  editItem = (idItem) => this.api.put(`/item/${idItem}`)
+  editItem = (idItem) => this.api.put(`/api/item/${idItem}`)
   
-  checkItem = (idItem, isDone) => this.api.put(`/item/check/${idItem}`, isDone)
+  checkItem = (idItem, isDone) => this.api.put(`/api/item/check/${idItem}`, isDone)
 
-  deleteOneItem = (idItem) => this.api.delete(`/item/${idItem}`)
+  deleteOneItem = (idItem) => this.api.delete(`/api/item/${idItem}`)
 
 }
 
