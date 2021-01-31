@@ -42,7 +42,7 @@ class ListNew extends Component {
     <br/>
               <input type="text" name="name" value={name} onChange={this.handleChange} required/>
     <br/>
-    <br/>
+    {/* <br/>
               <label>Type:</label>
     <br/>
               <select value={type} onChange={this.handleChange} name="type" >
@@ -51,12 +51,12 @@ class ListNew extends Component {
                     <option value="log">log</option>
                     <option value="cyclelist">cyclelist</option>
               </select>
-    <br/>
-    <br/>
+    <br/> */}
+    {/* <br/>
               <label>Background:</label>
     <br/>
               <input type="text" name="background" placeholder="Some api call..." value={background} onChange={this.handleChange} />
-    <br/>
+    <br/> */}
     <br/>
               <label>Editor's Username:</label>
     <br/>
