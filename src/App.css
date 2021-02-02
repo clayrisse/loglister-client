@@ -181,7 +181,11 @@ h2 {
   text-align: left;
 } */
 
-
+.homelogo {
+  width: 30vw;
+  min-width: 300px;
+  padding: 30vh 0px 0px;
+}
 
 
 

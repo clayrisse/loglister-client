@@ -42,10 +42,11 @@ class App extends Component {
         <Navbar />
               
         <Switch>
-          <Route exact path="/" component={Home} />
-          <AnonRoute exact path="/signup" component={Signup} />
+          {/* <Route exact path="/" component={Home} /> */}
           <AnonRoute exact path="/login" component={Login} />
+          <AnonRoute exact path="/signup" component={Signup} />
 
+          <PrivateRoute exact path="/" component={Home} />
           <PrivateRoute exact path="/user" component={User} />
           {/* <PrivateRoute exact path="/user" render={(reactRouterProps) => ( <User {...reactRouterProps}  /> )} /> */}
           {/* <PrivateRoute exact path="/user" render={(reactRouterProps) => ( <User {...reactRouterProps} allLists={this.state.listArr} /> )} /> */}
