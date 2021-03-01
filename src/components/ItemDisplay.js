@@ -58,11 +58,11 @@ class ItemDisplay extends Component {
         return (
             <>
                 <div className="itemrow">
-                    <div clasName="leftrow">
+                    <div className="leftrow">
                         <input type="checkbox" checked={this.state.isDone} name="isDone" onChange={this.handleIsDoneCheck} />
                         <label>{this.state.title}</label> 
                     </div>
-                    <div clasName="rightrow">
+                    <div className="rightrow">
                         <button onClick={this.handleDeleteItem} className="btnform btnsetting" ><img src="./../icons/trash.png" height="16px" alt="trash"/></button> 
                     </div>
                 </div>
