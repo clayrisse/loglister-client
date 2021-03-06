@@ -5,7 +5,8 @@ class ItemDisplay extends Component {
     state = {
         title: "",
         notes: "",
-        isDone: false
+        isDone: false,
+        toggleMenu: false
     }
 
     handleIsDoneCheck = (event) => {
@@ -35,7 +36,9 @@ class ItemDisplay extends Component {
         })
         .catch((err) => console.log(err)) 
     } 
-      
+    
+    handleMenuToggle = () =>{this.setState({toggleMenu: !this.state.toggleMenu})}
+
     handleDeleteItem = (event) => {
         const  idItem  = this.props.itemId;
         serverService.deleteOneItem(idItem)
@@ -63,7 +66,18 @@ class ItemDisplay extends Component {
                         <label>{this.state.title}</label> 
                     </div>
                     <div className="rightrow">
+
+
+                        <button onClick={this.handleMenuToggle} className="btnform btnsetting" >
+                            <img src="./../icons/back.png" height="16px" alt="trash"/>
+                        </button> 
+                        
+
+                {  this.state.toggleMenu && (
+                    <>    
                         <button onClick={this.handleDeleteItem} className="btnform btnsetting" ><img src="./../icons/trash.png" height="16px" alt="trash"/></button> 
+                    </>
+                )}
                     </div>
                 </div>
                 <hr className="hr-small"/> 

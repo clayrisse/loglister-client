@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withAuth } from '../context/auth-context';
 import serverService from '../lib/server-service';
+// import IgSlider from '../components/IgSlider';
 
 class ListNew extends Component {
     state = { 
@@ -66,7 +67,7 @@ class ListNew extends Component {
  
               <button type="submit" className="btnform" >Create List</button>
             </form>
-
+          {/* <IgSlider/> */}
           </div>
         );
       }

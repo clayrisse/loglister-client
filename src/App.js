@@ -19,24 +19,6 @@ import ListDetail from './pages/ListDetail';
 
 
 class App extends Component {
-//   state = {
-//     listArr: [],
-//     infoShown: ""
-// }
-
-// getUserInfo = () => {
-//   serverService.getAllUserInfo() //axios call from service
-//     .then((response) => {
-//       console.log('response.data', response.data)
-//       this.setState({listArr: response.data.listsId, infoShown: response.data.listsId[4].name})
-//     })
-//     .catch((err) => console.log(err)) // con axios results is on `response.data` key
-// } 
-
-// componentDidMount() {
-//   this.getUserInfo()
-// }
-
   render() {
     return (
       <div className="container">

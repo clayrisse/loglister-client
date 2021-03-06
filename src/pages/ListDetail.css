@@ -1,31 +1,66 @@
-/* .dad-div {
-    text-align: center;
-    margin: 0 auto;
+html { 
+    /* background-color: rgba(192, 52, 52, 0); */
 }
-.listing {
+body {
+    padding: 0px 0px 0px;
+}
+.personal-back {
+    
+    background: no-repeat center 5% fixed;
+    background-size: cover;
+    /* background-blend-mode: multiply;  */
+    height: 100vh;
+    padding:12px 0px 150px;
+    /* text-align: center; */
+    /* margin: auto; */
+    
+}
+.transparent-back {
+    width: 92vw; 
+    /* background-color: rgba(255, 255, 255, 0.582); */
+
+    /* background-image: linear-gradient(to right,rgba(255, 255, 255, 0.7) 0%, #738ca69a 8%, #738ca6b0 92%, rgba(255, 255, 255, .4) 100% ); */
+
+
+    /* background-image: linear-gradient(to right,#ffffff42 0%,  #6e8399dd 8%, #738ca6dd 92%, #738ca62c 100% ); */
+    /* background-image: linear-gradient(to right,#738ca62c 0%,  #6e8399dd 8%, #738ca6dd 92%, #738ca62c 100% ); */
+    /* background-image: linear-gradient(to right,rgba(255, 255, 255, 0.4) 0%,  rgba(255, 255, 255, 0.7) 8%, rgba(255, 255, 255, 0.7) 92%, rgba(255, 255, 255, .4) 100% ); */
+    margin: 0 auto;
+    padding: 15px 0;
+    /* padding: 10px; */
+}
+.dad-div {
+    /* height: 100vh; */
+}
+
+.hr-big{
+    margin: 10xp;
+    padding: 10xp;
+}
+/* .listing {
     text-align: center;
     width: 80%;
     min-width: 300px;
     margin: 0 auto;
-}
+} */
 
 
-
+/* 
 #add-item-icon {
     padding: 10px 0px 0px;
-}
-.itemrow {
+} */
+/* .itemrow {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
 
-}
+} */
 
-.leftrow {
+/* .leftrow {
     text-align: left;
-}
+} */
 
-.rightrow {
+/* .rightrow {
     text-align: right;
 } */
