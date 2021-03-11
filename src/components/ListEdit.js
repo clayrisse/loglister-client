@@ -45,12 +45,10 @@ class ListEdit extends Component {
         this.setState( {backgroundAdd: !this.state.backgroundAdd} )
     }
     
-    getBackgroundSearchText = () => {
-        
-    }
+  
     handleBackgroundApiSearch = (event) => {
         event.preventDefault()
-        axios.get(`https://api.unsplash.com/search/photos?page=1&per_page=20&query=${this.state.backSearchWord}&client_id=`)
+        axios.get(`https://api.unsplash.com/search/photos?page=1&per_page=20&query=${this.state.backSearchWord}&`)
         // axios.get(`https://api.unsplash.com/search/photos?page=1&per_page=5&query=london&client_id=${process.env.REACT_APP_UNSPLASH_APIKEY}`)
         .then((response) => {
             console.log('Api ratelimit-remaining', response.headers['x-ratelimit-remaining']);
@@ -101,7 +99,7 @@ class ListEdit extends Component {
             <div className="list-edit">
             <form onSubmit={this.handleFormSubmit}>
                 <button type="submit" className="btnform" >Save List Changes</button>        <br/> <br/>
-                
+             </form>   
                 <div className="inputform">
                     <label>Locked</label>   <br/>
                     <input type="checkbox" checked={this.state.isPrivate}  id="private-input" name="isPrivate" onChange={this.handleIsPrivateCheckbox} />
@@ -123,17 +121,18 @@ class ListEdit extends Component {
                     <p>Change background</p>
                 </button>
 
+                    <form onSubmit={this.handleBackgroundApiSearch}>
                 {  this.state.backgroundAdd && (
                     <>
-                    {/* <form onSubmit={this.getBackgroundSearchText}> */}
                         <input type="text" name="backSearchWord" placeholder="Write a key search word"  onChange={this.handleChange} />        <br/>
-                        <button onClick={this.handleBackgroundApiSearch}>Search</button>   <br/><br/>
-                    {/* </form> */}
+                        {/* <button onClick={this.handleBackgroundApiSearch}>Search</button>   <br/><br/> */}
+                        <button type="submit">Search</button>   <br/><br/>
                     <ul>
                         {this.state.backgroundApiObj && this.state.backgroundApiObj.map((eachPicObj, i) => {
                             return(
                             <li className="glide__slide " key={eachPicObj.id}>
                             <button type="image" name="background" value={eachPicObj.urls.thumb} onClick={(e)=> this.setBackground(e, eachPicObj.urls.regular, eachPicObj.color)}>
+                            {/* <button type="image" name="background" value={eachPicObj.urls.thumb} onSubmit={(e)=> this.setBackground(e, eachPicObj.urls.regular, eachPicObj.color)}> */}
                                 <div id="yellow-hover" key={eachPicObj.id} className="boder-y">
                                     <div className="ig-img">
                                         <img alt="Unsplash background" src={eachPicObj.urls.thumb}/>
@@ -146,6 +145,7 @@ class ListEdit extends Component {
                     </ul>
                     </>
                 )}    
+                    </form>
 
 
                 <br/><br/><br/>
@@ -160,7 +160,7 @@ class ListEdit extends Component {
                     <button onClick={this.handleDeleteList}>YES</button> 
                     </>
                 )}
-            </form>
+            {/* </form> */}
           </div>
         );
     }

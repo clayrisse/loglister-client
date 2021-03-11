@@ -29,7 +29,7 @@ class ListDetail extends Component {
                 const backColor = response.data.backColor + "ff"
                 let colorGradient = this.hexToHSL((backColor)) // to be able to change luminace
                 let colorX = colorGradient.split(",")
-                colorX[2] = (Number((100-colorX[2].slice(0,-1))/1.4)+ Number(colorX[2].slice(0,-1))) + "%"
+                colorX[2] = (Number((100-colorX[2].slice(0,-1))/1.5)+ Number(colorX[2].slice(0,-1))) + "%"
                 colorGradient = colorX.join(",")
                 
                 this.setState({chosenList: response.data, colorGradient: colorGradient, itemListArr: response.data.listItems})
