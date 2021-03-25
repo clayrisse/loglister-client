@@ -65,9 +65,9 @@ class ListDetail extends Component {
             s = 0,
             l = 0;
       
-        if (delta == 0)      h = 0;
-        else if (cmax == r)  h = ((g - b) / delta) % 6;
-        else if (cmax == g)  h = (b - r) / delta + 2;
+        if (delta === 0)      h = 0;
+        else if (cmax === r)  h = ((g - b) / delta) % 6;
+        else if (cmax === g)  h = (b - r) / delta + 2;
         else                 h = (r - g) / delta + 4;
       
         h = Math.round(h * 60);
@@ -75,7 +75,7 @@ class ListDetail extends Component {
         if (h < 0) h += 360;
       
         l = (cmax + cmin) / 2;
-        s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
+        s = delta === 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
         s = +(s * 100).toFixed(1);
         l = +(l * 100).toFixed(1);
       
@@ -88,7 +88,8 @@ class ListDetail extends Component {
 
     
     render() {
-        const {backColor, background} = this.state.chosenList
+        // const {backColor, background} = this.state.chosenList
+        const {background} = this.state.chosenList
         return (
             <div className="personal-back" style={{ backgroundImage: `linear-gradient(to right, 
             ${this.state.colorGradient.slice(0,-6).concat("0)")} 10%,  

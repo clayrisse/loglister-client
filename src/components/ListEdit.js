@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import serverService from '../lib/server-service';
 import "./ListEdit.css" 
-import axios from "axios";
+// import axios from "axios";
+import unsplash from "../api/unsplash"
+import ImageList from './ImageList';
 
 class ListEdit extends Component {
     state = { 
@@ -48,8 +50,10 @@ class ListEdit extends Component {
   
     handleBackgroundApiSearch = (event) => {
         event.preventDefault()
-        axios.get(`https://api.unsplash.com/search/photos?page=1&per_page=20&query=${this.state.backSearchWord}&`)
-        // axios.get(`https://api.unsplash.com/search/photos?page=1&per_page=5&query=london&client_id=${process.env.REACT_APP_UNSPLASH_APIKEY}`)
+        //the base api call is in api/unsplash
+        unsplash.get(`/search/photos`, { 
+            params: { query: this.state.backSearchWord,  page:1, per_page:20 },   
+        })
         .then((response) => {
             console.log('Api ratelimit-remaining', response.headers['x-ratelimit-remaining']);
             this.setState({ backgroundApiObj: response.data.results})
@@ -121,32 +125,15 @@ class ListEdit extends Component {
                     <p>Change background</p>
                 </button>
 
-                    <form onSubmit={this.handleBackgroundApiSearch}>
-                {  this.state.backgroundAdd && (
-                    <>
-                        <input type="text" name="backSearchWord" placeholder="Write a key search word"  onChange={this.handleChange} />        <br/>
-                        {/* <button onClick={this.handleBackgroundApiSearch}>Search</button>   <br/><br/> */}
-                        <button type="submit">Search</button>   <br/><br/>
-                    <ul>
-                        {this.state.backgroundApiObj && this.state.backgroundApiObj.map((eachPicObj, i) => {
-                            return(
-                            <li className="glide__slide " key={eachPicObj.id}>
-                            <button type="image" name="background" value={eachPicObj.urls.thumb} onClick={(e)=> this.setBackground(e, eachPicObj.urls.regular, eachPicObj.color)}>
-                            {/* <button type="image" name="background" value={eachPicObj.urls.thumb} onSubmit={(e)=> this.setBackground(e, eachPicObj.urls.regular, eachPicObj.color)}> */}
-                                <div id="yellow-hover" key={eachPicObj.id} className="boder-y">
-                                    <div className="ig-img">
-                                        <img alt="Unsplash background" src={eachPicObj.urls.thumb}/>
-                                    </div>
-                                </div>
-                            </button>
-                            </li>
-                            )}
-                        )}
-                    </ul>
-                    </>
-                )}    
-                    </form>
-
+                <form onSubmit={this.handleBackgroundApiSearch}>
+                    {  this.state.backgroundAdd && (
+                        <>
+                            <input type="text" name="backSearchWord" placeholder="Write a key search word"  onChange={this.handleChange} /> <br/>
+                            <button type="submit">Search</button>   <br/><br/>
+                            <ImageList images={this.state.backgroundApiObj} setBackground={this.setBackground}/>
+                        </>
+                    )}    
+                </form>
 
                 <br/><br/><br/>
                 <label>Editor's Username:</label>        <br/>

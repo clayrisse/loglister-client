@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Switch } from 'react-router-dom';
-// import { Switch, Route } from 'react-router-dom';
+// import { Switch } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import User from './pages/User';
+import Error from './pages/Error';
 
 import AnonRoute from './components/AnonRoute';
 import PrivateRoute from './components/PrivateRoute';
@@ -37,6 +38,8 @@ class App extends Component {
           <PrivateRoute exact path="/settings" component={Settings} />
           <PrivateRoute exact path="/list/new" component={ListNew} />
           <PrivateRoute exact path="/list/:listId" component={ListDetail} />
+          
+          <Route component={Error} />
         </Switch>
       </div>
     );
