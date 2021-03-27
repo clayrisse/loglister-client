@@ -12,10 +12,10 @@ import Error from './pages/Error';
 
 import AnonRoute from './components/AnonRoute';
 import PrivateRoute from './components/PrivateRoute';
-import Favorites from './pages/Favorites';
 import Settings from './pages/Settings';
-import ListNew from './pages/ListNew';
+import ListAdd from './pages/ListAdd';
 import ListDetail from './pages/ListDetail';
+import Widgets from './pages-widgets/Widgets';
 // import serverService from './lib/server-service'
 
 
@@ -27,6 +27,8 @@ class App extends Component {
               
         <Switch>
           {/* <Route exact path="/" component={Home} /> */}
+          <Route exact path="/widgets" component={Widgets} />
+
           <AnonRoute exact path="/login" component={Login} />
           <AnonRoute exact path="/signup" component={Signup} />
 
@@ -34,9 +36,8 @@ class App extends Component {
           <PrivateRoute exact path="/user" component={User} />
           {/* <PrivateRoute exact path="/user" render={(reactRouterProps) => ( <User {...reactRouterProps}  /> )} /> */}
           {/* <PrivateRoute exact path="/user" render={(reactRouterProps) => ( <User {...reactRouterProps} allLists={this.state.listArr} /> )} /> */}
-          <PrivateRoute exact path="/favorites" component={Favorites} />
           <PrivateRoute exact path="/settings" component={Settings} />
-          <PrivateRoute exact path="/list/new" component={ListNew} />
+          <PrivateRoute exact path="/list/new" component={ListAdd} />
           <PrivateRoute exact path="/list/:listId" component={ListDetail} />
           
           <Route component={Error} />

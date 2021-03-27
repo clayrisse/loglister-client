@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withAuth } from '../context/auth-context';
 import { Link } from 'react-router-dom';
 import serverService from '../lib/server-service'
+import './User.css'
 
 class User extends Component {
   // constructor(props) {
@@ -43,7 +44,7 @@ class User extends Component {
     //listsId[1].name
   render() {
     return (
-      <div>
+      <div className="list-list">
         <h1>{this.props.user && this.props.user.username}</h1>
         <br/>
         <hr className="hr-big"/> 

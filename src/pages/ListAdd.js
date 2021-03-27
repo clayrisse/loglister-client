@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { withAuth } from '../context/auth-context';
 import serverService from '../lib/server-service';
+import './ListAdd.css'
 // import IgSlider from '../components/IgSlider';
 
-class ListNew extends Component {
+class ListAdd extends Component {
     state = { 
         name: "",
         type: "list", 
@@ -34,7 +35,7 @@ class ListNew extends Component {
       render() {
         const { name, type, background, editorsName } = this.state;
         return (
-          <div>
+          <div className="list-add">
             <h1>Add</h1>
     <br/> <br/>
             <form onSubmit={this.handleFormSubmit}>
@@ -73,4 +74,4 @@ class ListNew extends Component {
       }
 }
 
-export default withAuth(ListNew)
+export default withAuth(ListAdd)
